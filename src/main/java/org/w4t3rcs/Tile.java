@@ -3,6 +3,7 @@ package org.w4t3rcs;
 import java.awt.*;
 
 public class Tile {
+    public static final int EMPTY = 0;
     private int value;
 
     public Tile(int value) {
@@ -14,7 +15,7 @@ public class Tile {
     }
 
     public boolean isEmpty() {
-        return getValue() <= 0;
+        return getValue() <= EMPTY;
     }
 
     public Color getFontColor() {
@@ -46,5 +47,12 @@ public class Tile {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Tile{" +
+                "value=" + value +
+                '}';
     }
 }
