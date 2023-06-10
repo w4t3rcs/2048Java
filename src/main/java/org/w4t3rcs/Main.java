@@ -1,22 +1,18 @@
 package org.w4t3rcs;
 
-import java.util.Arrays;
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
         Model model = new Model();
-        Tile[] tiles1 = new Tile[]{new Tile(4), new Tile(4), new Tile(4), new Tile(0)};
-        Tile[] tiles2 = new Tile[]{new Tile(2), new Tile(2), new Tile(4), new Tile(0)};
-        Tile[] tiles3 = new Tile[]{new Tile(4), new Tile(4), new Tile(4), new Tile(4)};
-
-        model.mergeTiles(tiles1);
-        model.mergeTiles(tiles2);
-        model.mergeTiles(tiles3);
-
-        Arrays.stream(tiles1).forEach(System.out::print);
-        System.out.println();
-        Arrays.stream(tiles2).forEach(System.out::print);
-        System.out.println();
-        Arrays.stream(tiles3).forEach(System.out::print);
+        Controller controller = new Controller(model);
+        JFrame game2048 = new JFrame();
+        game2048.setTitle("2048");
+        game2048.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        game2048.setSize(460, 540);
+        game2048.setResizable(false);
+        game2048.add(controller.getView());
+        game2048.setLocationRelativeTo(null);
+        game2048.setVisible(true);
     }
 }
